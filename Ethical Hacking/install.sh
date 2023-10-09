@@ -27,7 +27,7 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git curl wget node npm
+sudo apt-get install docker.io docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin git curl wget node npm
 
 echo -e "${yel}Downloading Labs${end}\n"
 mkdir -p /opt/labs/web
@@ -37,4 +37,6 @@ git clone https://github.com/NeuraLegion/brokencrystals
 
 echo -e "${yel}Installing Tools${end}\n"
 
+docker volume create openvas
+docker run --detach --publish 8880:9392 -e PASSWORD='password123' --volume openvas:/data --name openvas immauss/openvas
 curl https://raw.githubusercontent.com/Lavender-exe/ICS-Lab/main/setup/kali-setup.sh | sudo bash
