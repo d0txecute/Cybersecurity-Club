@@ -1,5 +1,9 @@
 The install script will install some tools that we will use in the course - some of them may change though.
 
+One liner:
+`curl https://raw.githubusercontent.com/d0txecute/Cybersecurity-Club/main/Ethical%20Hacking/install.sh | sudo bash`
+`wget curl https://raw.githubusercontent.com/d0txecute/Cybersecurity-Club/main/Ethical%20Hacking/install.sh | sudo bash`
+
 ### OpenVAS
 Install Guide: https://immauss.github.io/openvas/
 
